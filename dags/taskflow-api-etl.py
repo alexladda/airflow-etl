@@ -5,9 +5,14 @@ from airflow.utils.dates import days_ago
 # These args will get passed on to each operator
 # You can override them on a per-task basis during operator initialization
 default_args = {
-    'owner': 'airflow',
+    'owner': 'alex',
 }
-@dag(default_args=default_args, schedule_interval=None, start_date=days_ago(2), tags=['example'])
+
+
+@dag(default_args=default_args,
+     schedule_interval=None,
+     start_date=days_ago(2),
+     tags=['example'])
 def tutorial_taskflow_api_etl():
     """
     ### TaskFlow API Tutorial Documentation
@@ -29,6 +34,7 @@ def tutorial_taskflow_api_etl():
 
         order_data_dict = json.loads(data_string)
         return order_data_dict
+
     @task(multiple_outputs=True)
     def transform(order_data_dict: dict):
         """
@@ -42,6 +48,7 @@ def tutorial_taskflow_api_etl():
             total_order_value += value
 
         return {"total_order_value": total_order_value}
+
     @task()
     def load(total_order_value: float):
         """
@@ -54,5 +61,6 @@ def tutorial_taskflow_api_etl():
     order_data = extract()
     order_summary = transform(order_data)
     load(order_summary["total_order_value"])
-tutorial_etl_dag = tutorial_taskflow_api_etl()
 
+
+tutorial_etl_dag = tutorial_taskflow_api_etl()
