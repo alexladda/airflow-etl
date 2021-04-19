@@ -9,13 +9,13 @@ import json
 # These args will get passed on to each operator
 # You can override them on a per-task basis during operator initialization
 default_args = {
-    'owner': 'alex',
-    'schedule_interval': '*/5 * * * *'
+    'owner': 'alex'
 }
 
 
 @dag(default_args=default_args,
-     start_date=days_ago(2))
+     start_date=days_ago(2),
+     schedule_interval='*/5 * * * *')
 def weather_station():
     """
     ### Ahoi
