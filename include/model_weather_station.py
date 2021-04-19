@@ -4,7 +4,7 @@ from sqlalchemy import Column, Integer, Float, String, Date
 Base = declarative_base()
 
 
-class weather(Base):
+class Weather(Base):
     __tablename__ = 'weather_station'
     id = Column(Integer, primary_key=True)
     coord_lon = Column(Float)
