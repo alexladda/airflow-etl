@@ -2,6 +2,7 @@ from airflow.decorators import dag, task
 from airflow.utils.dates import days_ago
 from airflow.models import Variable
 
+
 import requests
 import json
 
