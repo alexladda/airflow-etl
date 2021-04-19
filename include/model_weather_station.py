@@ -6,7 +6,7 @@ Base = declarative_base()
 
 class Weather(Base):
     __tablename__ = 'weather_station'
-    id = Column(Integer, primary_key=True)
+    id = Column('weather_id', Integer, primary_key=True)
     coord_lon = Column(Float)
     coord_lat = Column(Float)
     weather_id = Column(Integer)
