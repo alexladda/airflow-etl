@@ -5,8 +5,8 @@ from airflow.hooks.base import BaseHook
 
 
 conn = BaseHook.get_connection('aws_database_1')
-engine = create_engine(conn)
-Session = sessionmaker(bind=engine)
+# engine = create_engine(conn)
+# Session = sessionmaker(bind=engine)
 
 
 def create_database(Model):
