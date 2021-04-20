@@ -111,6 +111,7 @@ def weather_station():
         """
 
         Weather_now = Weather(**w_now)
+        print("*** RECIEVED WEATHER ****")
         print(Weather_now)
         print("*** DB Connection ****")
         s = c.Session()
