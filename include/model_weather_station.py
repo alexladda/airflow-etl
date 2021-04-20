@@ -1,5 +1,5 @@
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, Float, String, Timestamp
+from sqlalchemy import Column, Integer, Float, String, TIMESTAMP
 
 Base = declarative_base()
 
@@ -33,12 +33,12 @@ class Weather(Base):
     wind_deg = Column(Float, nullable=True)
     wind_gust = Column(Float, nullable=True)
     clouds_all = Column(Float, nullable=True)
-    dt = Column(Timestamp, nullable=True)
+    dt = Column(TIMESTAMP, nullable=True)
     sys_type = Column(Float, nullable=True)
     sys_id = Column(Float, nullable=True)
     sys_country = Column(String, nullable=True)
-    sys_sunrise = Column(Timestamp, nullable=True)
-    sys_sunset = Column(Timestamp, nullable=True)
+    sys_sunrise = Column(TIMESTAMP, nullable=True)
+    sys_sunset = Column(TIMESTAMP, nullable=True)
     timezone = Column(Integer, nullable=True)
     city_id = Column(Integer, nullable=True)
     city_name = Column(String, nullable=True)
