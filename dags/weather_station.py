@@ -18,7 +18,6 @@ default_args = {
 
 
 @dag(default_args=default_args,
-     start_date=days_ago(1),
      schedule_interval='*/5 * * * *')
 def weather_station():
     """
