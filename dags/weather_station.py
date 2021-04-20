@@ -40,17 +40,17 @@ def weather_station():
         print("*** RAW WEATHER ***")
         print(raw_weather)
         print(raw_weather.text)
-        return raw_weather
+        return {'raw_weather': json.loads(raw_weather.text)}
 
     @task(multiple_outputs=True)
-    def transform(raw_weather):
+    def transform(raw_weather: dict):
         """
         #### Transform task
         # <transform json dict to list of values for the class>
         # TODO: check if null etc... let's see what comes in.
         """
 
-        w_data = json.loads(raw_weather.text)
+        w_data = raw_weather
 
         print("****** WEATHER NOW <start> ******")
         pretty = json.dumps(w_data, indent=2)
