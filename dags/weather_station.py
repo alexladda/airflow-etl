@@ -69,7 +69,7 @@ def weather_station():
         w_now['weather_main'] = w_data['weather'][0]['main']
         w_now['weather_description'] = w_data['weather'][0]['description']
         w_now['weather_icon'] = w_data['weather'][0]['icon']
-        w_now['base_source'] = w_data['main']
+        w_now['base_source'] = w_data['base']
         w_now['main_temp'] = w_data['main']['temp']
         w_now['main_feels_like'] = w_data['main']['feels_like']
         w_now['main_temp_min'] = w_data['main']['temp_min']
