@@ -1,3 +1,6 @@
+# vim swap files
+*.swp
+
 # This Section is loosely based on
 # https://github.com/apache/airflow/blob/master/.gitignore
 #
