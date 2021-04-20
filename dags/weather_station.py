@@ -107,10 +107,11 @@ def weather_station():
     def load(w_now: dict):
         """
         #### Load task
-        # TODO: instantiate Weather class, commit to db
+        # <instantiate Weather class, commit to db>
         """
 
         Weather_now = Weather(**w_now)
+        print(Weather_now)
         print("*** DB Connection ****")
         s = c.Session()
         s.add(Weather_now)
