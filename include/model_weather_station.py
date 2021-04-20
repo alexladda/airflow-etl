@@ -33,7 +33,7 @@ class Weather(Base):
     wind_deg = Column(Float, nullable=True)
     wind_gust = Column(Float, nullable=True)
     clouds_all = Column(Float, nullable=True)
-    dt = Column(Date, nullable=True)
+    dt = Column(Integer, nullable=True)
     sys_type = Column(Float, nullable=True)
     sys_id = Column(Float, nullable=True)
     sys_country = Column(String, nullable=True)
