@@ -95,8 +95,10 @@ def weather_station():
         w_now['sys_type'] = w_data['sys']['type']
         w_now['sys_id'] = w_data['sys']['id']
         w_now['sys_country'] = w_data['sys']['country']
-        w_now['sys_sunrise'] = w_data['sys']['sunrise']
-        w_now['sys_sunset'] = w_data['sys']['sunset']
+        ts = w_data['sys']['sunrise']
+        w_now['sys_sunrise'] = datetime.utcfromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+        ts = w_data['sys']['sunset']
+        w_now['sys_sunset'] = datetime.utcfromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
         w_now['timezone'] = w_data['timezone']
         w_now['city_id'] = w_data['id']
         w_now['city_name'] = w_data['name']
