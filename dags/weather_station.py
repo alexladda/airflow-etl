@@ -39,11 +39,11 @@ def weather_station():
         raw_weather = requests.get(url, params=payload)
         print("*** RAW WEATHER ***")
         print(raw_weather)
-
+        print(raw_weather.text)
         return raw_weather
 
     @task(multiple_outputs=True)
-    def transform(raw_weather: dict):
+    def transform(raw_weather):
         """
         #### Transform task
         # <transform json dict to list of values for the class>
