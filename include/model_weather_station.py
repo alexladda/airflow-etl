@@ -6,7 +6,7 @@ Base = declarative_base()
 
 class Weather(Base):
     __tablename__ = 'weather_station'
-    id = Column('weather_id', Integer, primary_key=True)
+    id = Column(Integer, primary_key=True)
     coord_lon = Column(Float)
     coord_lat = Column(Float)
     weather_id = Column(Integer)
@@ -36,13 +36,13 @@ class Weather(Base):
     sys_sunrise = Column(Date)
     sys_sunset = Column(Date)
     timezone = Column(Integer)
-    id = Column(Integer)
-    name = Column(String)
+    city_id = Column(Integer)
+    city_name = Column(String)
     cod = Column(Integer)
 
     def __repr__(self):
-        return "<Weather(name='{}', temp='{}', main='{}', description='{}')"\
-               .format(self.name,
+        return "<Weather(city name='{}', temp='{}', main='{}', description='{}')"\
+               .format(self.city_name,
                        self.main_temp,
                        self.weather_main,
                        self.weather_description)
