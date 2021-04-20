@@ -1,0 +1,43 @@
+{
+  "coord": {
+    "lon": 115.1357,
+    "lat": -8.6638
+  },
+  "weather": [
+    {
+      "id": 801,
+      "main": "Clouds",
+      "description": "few clouds",
+      "icon": "02d"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 301.15,
+    "feels_like": 304.95,
+    "temp_min": 301.15,
+    "temp_max": 301.15,
+    "pressure": 1012,
+    "humidity": 78
+  },
+  "visibility": 10000,
+  "wind": {
+    "speed": 1.54,
+    "deg": 350
+  },
+  "clouds": {
+    "all": 20
+  },
+  "dt": 1618880994,
+  "sys": {
+    "type": 1,
+    "id": 9333,
+    "country": "ID",
+    "sunrise": 1618870912,
+    "sunset": 1618913673
+  },
+  "timezone": 28800,
+  "id": 7334510,
+  "name": "Banjar Kerobokan",
+  "cod": 200
+}

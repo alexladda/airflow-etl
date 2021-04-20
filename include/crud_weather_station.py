@@ -6,8 +6,8 @@ from airflow.hooks.base import BaseHook
 from include.model_weather_station import Weather as Weather
 
 conn = BaseHook.get_connection('aws_database')
-# engine = create_engine(conn)
-# Session = sessionmaker(bind=engine)
+engine = create_engine(conn)
+Session = sessionmaker(bind=engine)
 
 
 def create_table():

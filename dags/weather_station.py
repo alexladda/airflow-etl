@@ -6,6 +6,9 @@ from airflow.models import Variable
 import requests
 import json
 
+import include.crud_weather_station as c
+import include.model_weather_station as m
+
 
 # These args will get passed on to each operator
 # You can override them on a per-task basis during operator initialization
@@ -33,9 +36,7 @@ def weather_station():
         api_key = Variable.get("api_key_openweather")
         payload = {'lat': -8.663794, 'lon': 115.135669, 'APPID': api_key}
 
-        r = requests.get(url, params=payload)
-        print(r)
-        raw_weather = json.loads(r.text)
+        raw_weather = requests.get(url, params=payload)
         print("*** RAW WEATHER ***")
         print(raw_weather)
 
@@ -45,11 +46,13 @@ def weather_station():
     def transform(raw_weather: dict):
         """
         #### Transform task
+        # <transform json dict to list of values for the class>
         # TODO: check if null etc... let's see what comes in.
         """
 
         # for now do nothing
-        weather_now = raw_weather
+
+        weather = json.loads(raw_weather.text)
 
         print("*** WEATHER NOW ***")
         pretty = json.dumps(weather_now, indent=2)
@@ -61,7 +64,7 @@ def weather_station():
     def load(weather_now: dict):
         """
         #### Load task
-        # TODO: commit to db
+        # TODO: instantiate Weather class, commit to db
         """
 
         print("*** COMMIT ****")
