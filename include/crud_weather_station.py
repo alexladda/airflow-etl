@@ -6,7 +6,7 @@ from airflow.hooks.base import BaseHook
 from include.model_weather_station import Weather as Weather
 
 conn = BaseHook.get_connection('aws_database')
-engine = create_engine(conn)
+engine = create_engine(conn.get_uri())
 Session = sessionmaker(bind=engine)
 
 
