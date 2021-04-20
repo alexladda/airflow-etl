@@ -50,7 +50,7 @@ def weather_station():
         # TODO: check if null etc... let's see what comes in.
         """
 
-        w_data = raw_weather
+        w_data = raw_weather['raw_weather']
 
         print("****** WEATHER NOW <start> ******")
         pretty = json.dumps(w_data, indent=2)
