@@ -5,6 +5,7 @@ from airflow.models import Variable
 
 import requests
 import json
+from datetime import datetime
 
 import include.crud_weather_station as c
 from include.model_weather_station import Weather as Weather
@@ -89,7 +90,8 @@ def weather_station():
         w_now['wind_deg'] = w_data['wind']['deg']
         # w_now['wind_gust'] = w_data['wind']['gust']
         w_now['clouds_all'] = w_data['clouds']['all']
-        w_now['dt'] = w_data['dt']
+        ts = w_data['dt']
+        w_now['dt'] = datetime.utcfromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
         w_now['sys_type'] = w_data['sys']['type']
         w_now['sys_id'] = w_data['sys']['id']
         w_now['sys_country'] = w_data['sys']['country']
