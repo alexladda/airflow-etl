@@ -1,18 +1,17 @@
-import json
-
 from airflow.decorators import dag, task
 from airflow.utils.dates import days_ago
+from airflow.models import Variable
 
+import json
 import requests
 
-from airflow.models import Variable
 api_key = Variable.get("api_key_nasa")
 
 
 # These args will get passed on to each operator
 # You can override them on a per-task basis during operator initialization
 default_args = {
-    'owner': 'alex',
+    'owner': 'alex'
 }
 
 
@@ -53,9 +52,9 @@ def throwback_mission():
         r = requests.get(url, params=payload)
         images_sol = json.loads(r.text)
         # returning the whole requests content
-        return {'images_sol': json.loads(r.text)
+        return {'images_sol': images_sol}
 
-    @ task(multiple_outputs=True)
+    @task(multiple_outputs=True)
     def transform(images_sol: dict):
         """
         # Transform task
@@ -63,21 +62,20 @@ def throwback_mission():
         """
         image_url = list(images_sol.keys())[0]
 
-        return {"image url": image_url}
+        return {'image url': image_url}
 
-    @ task()
-    def load(image_url: string):
+    @task()
+    def load(image_url: dict):
         """
-        # Load task
         A simple Load task which takes in the result of the Transform task and
         instead of saving it to end user review, just prints it out.
         """
-
-        print("The image URL is: %.2f" % total_order_value)
+        url = "/"
+        print("The image URL is: %.2f" % url)
 
     order_data = extract()
     order_summary = transform(order_data)
     load(order_summary["total_order_value"])
 
 
-tutorial_etl_dag = tutorial_taskflow_api_etl()
+throwback_mission_dag = throwback_mission()
